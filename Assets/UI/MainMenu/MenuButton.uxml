@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/menu-button.uss?fileID=7433441132597879392&amp;guid=25efcc5788f64a64aaa13c373af1c927&amp;type=3#menu-button" />
+    <ui:VisualElement name="button-container" class="button-container">
+        <ui:Button display-tooltip-when-elided="true" name="menu-button" class="menu-button" style="background-color: rgb(24, 24, 26);">
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="label" enable-rich-text="true" parse-escape-sequences="false" selectable="false" double-click-selects-word="false" triple-click-selects-line="false" class="label" style="display: flex; visibility: visible; overflow: visible; position: relative; flex-wrap: nowrap; justify-content: center; align-self: center; white-space: normal; -unity-text-align: middle-center; text-overflow: ellipsis;" />
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>

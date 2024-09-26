@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Generate Construct</Title>
+			<Shortcut>c</Shortcut>
+			<Description>Snippet for the Construct created by the Zenject refactoring</Description>
+			<Author>sha-255</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+				<SnippetType>Refactoring</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="false">
+					<ID>Inject</ID>
+					<Function>SimpleTypeName(global::Zenject.InjectAttribute)</Function>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[[$Inject$]
+				private void Construct($end$)
+				{
+					
+				}
+                ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

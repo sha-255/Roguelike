@@ -1,0 +1,53 @@
+.button {
+    opacity: 1;
+    -unity-text-align: middle-center;
+    text-overflow: ellipsis;
+    flex-wrap: wrap;
+    align-items: auto;
+    justify-content: center;
+    align-self: auto;
+    align-content: auto;
+    -unity-font-style: bold;
+    -unity-font-definition: url("project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime");
+    background-color: rgb(45, 45, 47);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+    font-size: 20%;
+    color: rgb(255, 255, 255);
+    width: auto;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+}
+
+.container {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgb(24, 24, 26);
+}
