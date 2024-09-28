@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc7d5d5bae5f4c418ae84a42b47d061, type: 3}
-  m_Name: Configuration
+  m_Script: {fileID: 11500000, guid: ddaf93d3cfcac6b4b93676b96c7456b3, type: 3}
+  m_Name: Bullet Configuration
   m_EditorClassIdentifier: 
-  CharacterConfiguration: {fileID: 11400000, guid: 0d9cd4107b214644598c479470830198,
-    type: 2}
-  BulletConfiguration: {fileID: 11400000, guid: 3a9f87b77eb098f40a96fd2750164e01,
-    type: 2}
+  LifeTime: 10

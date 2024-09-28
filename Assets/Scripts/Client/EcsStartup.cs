@@ -10,14 +10,15 @@ namespace Client
         [SerializeField] SceneService _sceneService;
 
         EcsWorld _world;
-        IEcsSystems _systems;
+        IEcsSystems _update;
+        IEcsSystems _fixedUpdate;
 
 
         void Start()
         {
             _world = new EcsWorld();
-            _systems = new EcsSystems(_world);
-            _systems
+            _update = new EcsSystems(_world);
+            _update
                 .Add(new CharacterInitSystem())
                 .Add(new CharacterMovementSystem())
                 .Add(new CharacterLookSystem())
@@ -29,19 +30,38 @@ namespace Client
                 .Inject(_configuration)
                 .Inject(_sceneService)
                 .Init();
+            _fixedUpdate = new EcsSystems(_world);
+            _fixedUpdate
+                .Add(new BulletSystem())
+#if UNITY_EDITOR
+                .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+#endif
+                .Inject(_configuration)
+                .Inject(_sceneService)
+                .Init();
         }
 
         void Update()
         {
-            _systems?.Run();
+            _update?.Run();
+        }
+
+        void FixedUpdate()
+        {
+            _fixedUpdate?.Run();
         }
 
         void OnDestroy()
         {
-            if (_systems != null)
+            if (_update != null)
             {
-                _systems.Destroy();
-                _systems = null;
+                _update.Destroy();
+                _update = null;
+            }
+            if (_fixedUpdate != null)
+            {
+                _fixedUpdate.Destroy();
+                _fixedUpdate = null;
             }
             if (_world != null)
             {

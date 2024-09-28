@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CharacterView>k__BackingField: {fileID: 8966729794824549127}
-  <BulletPrefab>k__BackingField: {fileID: 1131351259480841626, guid: 51f73f457186188408256a3172778f6f,
+  <BulletViewPrefab>k__BackingField: {fileID: 1131351259480841626, guid: 51f73f457186188408256a3172778f6f,
     type: 3}
 --- !u!1 &916675811
 GameObject:

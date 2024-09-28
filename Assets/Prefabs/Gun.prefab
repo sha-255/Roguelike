@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BulletSpawnPoint>k__BackingField: {fileID: 6802609706456333921}
   <Magazine>k__BackingField: {fileID: 7590506696002689091}
+  <FiringRate>k__BackingField: 0.2
 --- !u!1 &3648807519399555866
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 3648807519399555866}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.55}
+  m_LocalPosition: {x: 0, y: 0, z: 0.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
