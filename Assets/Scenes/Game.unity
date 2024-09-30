@@ -2981,6 +2981,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 5934996007216966266, guid: ac10456b644080d468511667d2cd287e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934996007216966266, guid: ac10456b644080d468511667d2cd287e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1472
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937089151893959827, guid: ac10456b644080d468511667d2cd287e,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937089151893959827, guid: ac10456b644080d468511667d2cd287e,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

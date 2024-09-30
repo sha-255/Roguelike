@@ -28,7 +28,6 @@ namespace Client
         public void Run(IEcsSystems systems)
         {
             CheckBulletLifetime();
-
             foreach (var gunEntity in _gunFilter.Value)
             {
                 ref var gun = ref _gunPool.Value.Get(gunEntity);
@@ -38,6 +37,25 @@ namespace Client
                 CreateBullet(spawnPoint).View.Rigidbody.linearVelocity
                     = SpreadDirection(spawnPoint, 100, 20, 20);
             }
+        }
+
+        private void CheckBulletLifetime()
+        {
+            foreach (var entity in _bulletLifeTimeFilter.Value)
+            {
+                ref var lifetime = ref _lifeTimePool.Value.Get(entity);
+                lifetime.Value -= Time.deltaTime;
+                if (lifetime.Value > 0) continue;
+                DestroyBullet(entity);
+            }
+        }
+
+        private void DestroyBullet(int entity)
+        {
+            ref var bullet = ref _bulletPool.Value.Get(entity);
+            bullet.View.TrailRenderer.Clear();
+            _sceneData.Value.ReleaseEnemy(bullet.View);
+            _world.Value.DelEntity(entity);
         }
 
         private BulletComponent CreateBullet(Transform spawnPoint)
@@ -50,6 +68,7 @@ namespace Client
         {
             var bulletEntity = _world.Value.NewEntity();
             ref var bullet = ref _bulletPool.Value.Add(bulletEntity);
+            bullet.View = _sceneData.Value.GetEnemy();
             ref var bulletLifetime = ref _lifeTimePool.Value.Add(bulletEntity);
             bulletLifetime.Value = _configuration.Value.BulletConfiguration.LifeTime;
             return ref bullet;
@@ -57,7 +76,6 @@ namespace Client
 
         private BulletComponent SetBulletPosition(ref BulletComponent bullet, Transform spawnPoint)
         {
-            bullet.View = _sceneData.Value.GetEnemy();
             var transform = bullet.View.transform;
             transform.position = spawnPoint.position;
             transform.rotation = spawnPoint.rotation;
@@ -77,21 +95,6 @@ namespace Client
             localSpread.y = Random.Range(-rangeHeight, rangeHeight);
             localSpread.z = force;
             return start.TransformVector(localSpread);
-        }
-
-        private void CheckBulletLifetime()
-        {
-            foreach (var entity in _bulletLifeTimeFilter.Value)
-            {
-                ref var lifetime = ref _lifeTimePool.Value.Get(entity);
-                lifetime.Value -= Time.deltaTime;
-
-                if (lifetime.Value > 0) continue;
-
-                ref var bullet = ref _bulletPool.Value.Get(entity);
-                _sceneData.Value.ReleaseEnemy(bullet.View);
-                _world.Value.DelEntity(entity);
-            }
         }
     }
 }
