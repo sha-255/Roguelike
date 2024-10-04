@@ -6,13 +6,14 @@ namespace Client
 {
     sealed class EcsStartup : MonoBehaviour
     {
-        [SerializeField] Configuration _configuration;
-        [SerializeField] SceneService _sceneService;
+        private const string CharacterGroupName = "Character";
 
-        EcsWorld _world;
-        IEcsSystems _update;
-        IEcsSystems _fixedUpdate;
+        [SerializeField] private Configuration _configuration;
+        [SerializeField] private SceneService _sceneService;
 
+        private EcsWorld _world;
+        private IEcsSystems _update;
+        private IEcsSystems _fixedUpdate;
 
         void Start()
         {
@@ -24,6 +25,7 @@ namespace Client
                 .Add(new CharacterLookSystem())
                 .Add(new InputSystem())
                 .Add(new GunSystem())
+                .Add(new EnemiesSystem())//TODO: complite system
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif

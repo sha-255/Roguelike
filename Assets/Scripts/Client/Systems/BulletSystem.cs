@@ -9,12 +9,11 @@ namespace Client
         private EcsWorldInject _world;
         private EcsCustomInject<SceneService> _sceneData;
         private EcsCustomInject<Configuration> _configuration;
-        private EcsPoolInject<BulletComponent> _bulletPool;
-        private EcsPoolInject<LifetimeComponent> _lifeTimePool;
-        private EcsFilterInject<Inc<LifetimeComponent, BulletComponent>> _bulletLifeTimeFilter;
         private EcsFilterInject<Inc<GunComponent>> _gunFilter;
         private EcsPoolInject<GunComponent> _gunPool;
-        private float _spawnInterval;
+        private EcsPoolInject<BulletComponent> _bulletPool;
+        private EcsPoolInject<LifetimeComponent> _lifeTimePool;
+        private EcsFilterInject<Inc<BulletComponent, LifetimeComponent>> _bulletLifetimeFilter;
 
         public void Init(IEcsSystems systems)
         {
@@ -41,10 +40,10 @@ namespace Client
 
         private void CheckBulletLifetime()
         {
-            foreach (var entity in _bulletLifeTimeFilter.Value)
+            foreach (var entity in _bulletLifetimeFilter.Value)
             {
                 ref var lifetime = ref _lifeTimePool.Value.Get(entity);
-                lifetime.Value -= Time.deltaTime;
+                lifetime.Value -= Time.fixedDeltaTime;
                 if (lifetime.Value > 0) continue;
                 DestroyBullet(entity);
             }

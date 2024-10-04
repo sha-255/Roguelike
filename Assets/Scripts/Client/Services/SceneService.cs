@@ -8,6 +8,8 @@ namespace Client
         [field: SerializeField] public UnitView CharacterView { get; private set; }
         [field: SerializeField] public BulletView BulletViewPrefab { get; private set; }
 
+        public Camera MainCamera => Camera.main;
+
         public PlayerInputActions InputActions
         { get; private set; }
 
